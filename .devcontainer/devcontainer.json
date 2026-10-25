@@ -12,7 +12,7 @@
       "visibility": "private"
     }
   },
-  "postCreateCommand": "bash -lc 'source \"$NVM_DIR/nvm.sh\" && nvm install 24 && nvm alias default 24 && PUPPETEER_SKIP_DOWNLOAD=true npm ci && npm run doctor'",
+  "postCreateCommand": "bash -lc 'source \"$NVM_DIR/nvm.sh\" && nvm install 24 && nvm alias default 24 && PUPPETEER_SKIP_DOWNLOAD=true npm ci && npm run doctor && npm run build'",
   "postStartCommand": "bash -lc 'source \"$NVM_DIR/nvm.sh\" && nvm use 24 && node .devcontainer/start.mjs'",
   "remoteUser": "node",
   "customizations": {
