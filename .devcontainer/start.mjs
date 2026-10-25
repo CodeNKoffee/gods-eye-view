@@ -18,5 +18,5 @@ try {
 } catch {}
 mkdirSync('.gev-logs', { recursive: true });
 const log = openSync('.gev-logs/codespaces.log', 'a');
-const child = spawn('npm', ['run', 'dev'], { env, detached: true, stdio: ['ignore', log, log] });
+const child = spawn('npm', ['run', 'preview', '--', '--host', '0.0.0.0', '--port', '4173', '--strictPort'], { env, detached: true, stdio: ['ignore', log, log] });
 child.unref();
