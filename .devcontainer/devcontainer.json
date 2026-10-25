@@ -1,12 +1,25 @@
 {
-  "name": "God's Eye View — private keyless",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-24-bookworm",
-  "forwardPorts": [4173],
+  "name": "God's Eye View \u2014 private keyless",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [
+    4173
+  ],
   "portsAttributes": {
-    "4173": { "label": "God's Eye View", "onAutoForward": "notify", "protocol": "http", "visibility": "private" }
+    "4173": {
+      "label": "God's Eye View",
+      "onAutoForward": "notify",
+      "protocol": "http",
+      "visibility": "private"
+    }
   },
-  "postCreateCommand": "PUPPETEER_SKIP_DOWNLOAD=true npm ci && npm run doctor",
-  "postStartCommand": "node .devcontainer/start.mjs",
+  "postCreateCommand": "bash -lc 'source \"$NVM_DIR/nvm.sh\" && nvm install 24 && nvm alias default 24 && PUPPETEER_SKIP_DOWNLOAD=true npm ci && npm run doctor'",
+  "postStartCommand": "bash -lc 'source \"$NVM_DIR/nvm.sh\" && nvm use 24 && node .devcontainer/start.mjs'",
   "remoteUser": "node",
-  "customizations": { "codespaces": { "openFiles": ["README.md"] } }
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    }
+  }
 }
